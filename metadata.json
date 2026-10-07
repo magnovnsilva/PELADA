@@ -1,0 +1,6 @@
+{
+  "name": "Sideral F.C.",
+  "description": "Aplicativo oficial do Situações Sideral F.C.: escalação, lista de espera automática, sorteio de equipes e controle financeiro da pelada.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

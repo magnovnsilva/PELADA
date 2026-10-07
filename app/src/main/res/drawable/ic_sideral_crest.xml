@@ -1,0 +1,110 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="500"
+    android:viewportHeight="500">
+
+    <!-- Outer Chrome Shield Bevel -->
+    <path
+        android:fillColor="#A6C0E2"
+        android:pathData="M 250,22 L 442,80 C 442,80 452,245 405,340 C 358,435 250,488 250,488 C 250,488 142,435 95,340 C 48,245 58,80 58,80 Z" />
+
+    <!-- Deep Navy Shield Border -->
+    <path
+        android:fillColor="#0D1E45"
+        android:pathData="M 250,28 L 434,84 C 434,84 444,242 398,333 C 353,425 250,478 250,478 C 250,478 147,425 102,333 C 56,242 66,84 66,84 Z" />
+
+    <!-- Inner Silver Shield Edge -->
+    <path
+        android:fillColor="#D8E4F5"
+        android:pathData="M 250,33 L 426,88 C 426,88 435,238 392,328 C 348,417 250,468 250,468 C 250,468 152,417 108,328 C 65,238 74,88 74,88 Z" />
+
+    <!-- Upper White Interior -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 250,38 L 420,91 C 420,91 426,170 415,200 L 85,200 C 74,170 80,91 80,91 Z" />
+
+    <!-- Lower Shield Vertical Red & White Stripes -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 85,200 L 415,200 C 400,280 370,350 250,460 C 130,350 100,280 85,200 Z" />
+
+    <!-- Red Stripes -->
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 95,200 L 135,200 L 135,310 C 118,275 105,240 95,200 Z" />
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 170,200 L 210,200 L 210,420 C 195,400 180,375 170,350 Z" />
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 245,200 L 255,200 L 255,460 L 245,460 Z" />
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 290,200 L 330,200 L 330,350 C 320,375 305,400 290,420 Z" />
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 365,200 L 405,200 C 395,240 382,275 365,310 Z" />
+
+    <!-- Three Red Stars at Top -->
+    <!-- Center Star -->
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 250,52 L 254,64 L 267,64 L 256,72 L 260,84 L 250,76 L 240,84 L 244,72 L 233,64 L 246,64 Z" />
+    <!-- Left Star -->
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 218,60 L 221,70 L 231,70 L 223,76 L 226,86 L 218,80 L 210,86 L 213,76 L 205,70 L 215,70 Z" />
+    <!-- Right Star -->
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 282,60 L 285,70 L 295,70 L 287,76 L 290,86 L 282,80 L 274,86 L 277,76 L 269,70 L 279,70 Z" />
+
+    <!-- Central Plaque Banner (Red) with Silver Bevel -->
+    <path
+        android:fillColor="#B0C8E8"
+        android:pathData="M 44,158 L 456,158 C 470,158 476,172 470,186 L 458,218 C 454,228 442,234 430,234 L 70,234 C 58,234 46,228 42,218 L 30,186 C 24,172 30,158 44,158 Z" />
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 48,162 L 452,162 C 462,162 468,173 463,183 L 452,213 C 449,222 439,228 428,228 L 72,228 C 61,228 51,222 48,213 L 37,183 C 32,173 38,162 48,162 Z" />
+
+    <!-- Center Emblem Circle (Navy with White Border) -->
+    <path
+        android:fillColor="#0D1E45"
+        android:pathData="M 250,235 C 290,235 322,267 322,307 C 322,347 290,379 250,379 C 210,379 178,347 178,307 C 178,267 210,235 250,235 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 250,240 C 287,240 317,270 317,307 C 317,344 287,374 250,374 C 213,374 183,344 183,307 C 183,270 213,240 250,240 Z" />
+
+    <!-- Desk Fan & Bottle in Center -->
+    <!-- Fan grill & stand -->
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 215,280 C 228,280 238,290 238,303 C 238,316 228,326 215,326 C 202,326 192,316 192,303 C 192,290 202,280 215,280 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 215,284 C 225,284 234,293 234,303 C 234,313 225,322 215,322 C 205,322 196,313 196,303 C 196,293 205,284 215,284 Z" />
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 213,326 L 217,326 L 222,338 L 208,338 Z" />
+
+    <!-- Bottle -->
+    <path
+        android:fillColor="#D61D28"
+        android:pathData="M 275,282 L 281,282 L 284,295 C 286,305 286,325 285,335 L 271,335 C 270,325 270,305 272,295 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 271,304 L 285,304 L 285,314 L 271,314 Z" />
+
+    <!-- Soccer Ball at Lower Apex -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M 250,380 C 265,380 277,392 277,407 C 277,422 265,434 250,434 C 235,434 223,422 223,407 C 223,392 235,380 250,380 Z" />
+    <!-- Soccer Pentagons -->
+    <path
+        android:fillColor="#0D1E45"
+        android:pathData="M 250,396 L 257,401 L 254,410 L 246,410 L 243,401 Z" />
+    <path
+        android:fillColor="#0D1E45"
+        android:pathData="M 250,380 C 253,380 255,381 257,382 L 253,389 L 247,389 L 243,382 C 245,381 247,380 250,380 Z" />
+</vector>
