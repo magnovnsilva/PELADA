@@ -123,6 +123,78 @@ class AndroidBridge(private val activity: MainActivity) {
   }
 
   @JavascriptInterface
+  fun triggerConvocacaoNotification(title: String, message: String) {
+    activity.runOnUiThread {
+      activity.requestPostNotificationPermission()
+      MatchReminderReceiver.showNotification(activity, title, message)
+    }
+  }
+
+  @JavascriptInterface
+  fun scheduleCustomReminder(
+    requestCode: Int,
+    enabled: Boolean,
+    dayOfWeek: Int,
+    hour: Int,
+    minute: Int,
+    title: String,
+    message: String
+  ) {
+    activity.runOnUiThread {
+      val alarmManager =
+        activity.getSystemService(Context.ALARM_SERVICE) as? AlarmManager ?: return@runOnUiThread
+      val intent = Intent(activity, MatchReminderReceiver::class.java).apply {
+        putExtra(MatchReminderReceiver.EXTRA_TITLE, title)
+        putExtra(MatchReminderReceiver.EXTRA_MESSAGE, message)
+      }
+      val pendingIntent = PendingIntent.getBroadcast(
+        activity,
+        requestCode,
+        intent,
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+      )
+
+      if (!enabled) {
+        alarmManager.cancel(pendingIntent)
+        return@runOnUiThread
+      }
+
+      val calendar = Calendar.getInstance().apply {
+        set(Calendar.DAY_OF_WEEK, dayOfWeek)
+        set(Calendar.HOUR_OF_DAY, hour)
+        set(Calendar.MINUTE, minute)
+        set(Calendar.SECOND, 0)
+        set(Calendar.MILLISECOND, 0)
+        if (before(Calendar.getInstance())) {
+          add(Calendar.WEEK_OF_YEAR, 1)
+        }
+      }
+
+      try {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+          alarmManager.setExactAndAllowWhileIdle(
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            pendingIntent
+          )
+        } else {
+          alarmManager.set(
+            AlarmManager.RTC_WAKEUP,
+            calendar.timeInMillis,
+            pendingIntent
+          )
+        }
+      } catch (e: Exception) {
+        alarmManager.set(
+          AlarmManager.RTC_WAKEUP,
+          calendar.timeInMillis,
+          pendingIntent
+        )
+      }
+    }
+  }
+
+  @JavascriptInterface
   fun scheduleReminder(
     enabled: Boolean,
     dayOfWeek: Int,

@@ -2140,6 +2140,161 @@ label {
   border-top-color: var(--bottom-nav-border);
   box-shadow: var(--bottom-nav-shadow);
 }
+
+/* Regra de Convocação: Segunda-feira às 19:00 */
+.enrollment-schedule-card {
+  margin-top: 14px;
+  padding: 18px 20px;
+  border-radius: 14px;
+  border: 1.5px solid var(--border);
+  background: var(--surface-card);
+  transition: all 0.3s ease;
+}
+.enrollment-schedule-card.status-open {
+  border-color: #34a853;
+  background: linear-gradient(180deg, rgba(52, 168, 83, 0.08) 0%, var(--surface-card) 100%);
+}
+.enrollment-schedule-card.status-closed {
+  border-color: #fbbc04;
+  background: linear-gradient(180deg, rgba(251, 188, 4, 0.08) 0%, var(--surface-card) 100%);
+}
+.enrollment-schedule-card.status-override {
+  border-color: #4285f4;
+  background: linear-gradient(180deg, rgba(66, 133, 244, 0.08) 0%, var(--surface-card) 100%);
+}
+.enrollment-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.enrollment-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+.enrollment-badge.open {
+  background: #e6f4ea;
+  color: #137333;
+}
+.enrollment-badge.closed {
+  background: #fef7e0;
+  color: #b06000;
+}
+.enrollment-badge.override {
+  background: #e8f0fe;
+  color: #1a73e8;
+}
+.enrollment-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.enrollment-badge.open .enrollment-dot {
+  animation: liveBlink 1.4s infinite ease-in-out;
+}
+.enrollment-countdown-tag {
+  font-size: 12px;
+  font-weight: 750;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.enrollment-countdown-tag strong {
+  color: var(--text-primary);
+  font-family: monospace;
+  font-size: 13px;
+}
+.enrollment-info-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 12px;
+}
+.enrollment-info-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #d31d28;
+}
+.enrollment-info-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.enrollment-info-text strong {
+  color: var(--text-primary);
+}
+.enrollment-tools-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border-light);
+}
+.enrollment-btn-test-notif, .enrollment-override-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 750;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+.enrollment-btn-test-notif:hover, .enrollment-override-btn:hover {
+  background: var(--surface-alt);
+  border-color: #102652;
+}
+.enrollment-btn-test-notif .icon, .enrollment-override-btn .icon {
+  width: 14px;
+  height: 14px;
+}
+.enrollment-locked-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  color: #8d6e19;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+.enrollment-locked-banner .icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #f57f17;
+}
+html[data-theme="dark"] .enrollment-locked-banner {
+  background: #2a2410;
+  border-color: #5c4e1f;
+  color: #ffd54f;
+}
+html[data-theme="dark"] .enrollment-locked-banner .icon {
+  color: #ffca28;
+}
 </style>
 </head>
 <body>
@@ -2161,6 +2316,8 @@ label {
   <symbol id="icon-whistle" viewBox="0 0 24 24"><path d="M11 5a5 5 0 0 0-5 5v3a4 4 0 0 0 4 4h3a5 5 0 0 0 5-5V9h3a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-7Zm0 0V2m4 7h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-6"/><circle cx="10" cy="11" r="2"/></symbol>
   <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
   <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="icon-calendar" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></symbol>
+  <symbol id="icon-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
   <symbol id="icon-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M8 21h8m-4-4v4"/></symbol>
   <symbol id="icon-sideral-crest" viewBox="0 0 500 500">
     <defs>
@@ -2327,9 +2484,44 @@ label {
       </div>
     </div>
 
+    <!-- Regra de Convocação: Segunda-feira às 19:00 -->
+    <div class="enrollment-schedule-card status-open" id="enrollment-schedule-card">
+      <div class="enrollment-card-top">
+        <div class="enrollment-badge open" id="enrollment-status-badge">
+          <span class="enrollment-dot"></span>
+          <span id="enrollment-status-text">Convocação Aberta</span>
+        </div>
+        <div class="enrollment-countdown-tag" id="enrollment-countdown-tag">
+          <svg class="icon" aria-hidden="true" style="width:14px;height:14px"><use href="#icon-clock"/></svg>
+          <span id="enrollment-countdown-label">Horário:</span>
+          <strong id="enrollment-countdown-value">Segunda 19:00</strong>
+        </div>
+      </div>
+      <div class="enrollment-info-row">
+        <svg class="enrollment-info-icon" aria-hidden="true"><use href="#icon-calendar"/></svg>
+        <p class="enrollment-info-text">
+          <strong>Regra Oficial do Sideral F.C.:</strong> Os nomes só podem ser adicionados para confirmar presença a partir de <strong>toda segunda-feira às 19:00</strong> de cada semana. Todos os membros recebem notificação prévia de que a convocação para o jogo de quinta-feira terá início.
+        </p>
+      </div>
+      <div class="enrollment-tools-row">
+        <button type="button" class="enrollment-btn-test-notif" id="btn-test-convocacao-notif" title="Disparar aviso prévio de que logo mais daremos início à convocação">
+          <svg class="icon" aria-hidden="true"><use href="#icon-bell"/></svg>
+          <span>Testar Aviso de Convocação</span>
+        </button>
+        <button type="button" class="enrollment-override-btn" id="btn-toggle-enrollment-override" title="Liberar ou restringir envio agora para testes do administrador">
+          <svg class="icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+          <span id="enrollment-override-label">Liberar Inscrição Agora</span>
+        </button>
+      </div>
+    </div>
+
     <form id="player-form" class="card entry-card">
       <div class="section-head"><div class="section-title"><span class="eyebrow">PRESENÇA NA RODADA</span><h2>Bora jogar?</h2></div><svg class="icon" aria-hidden="true"><use href="#icon-ball"/></svg></div>
-      <div class="inline-form"><div class="field"><label for="player-name">Nome do jogador</label><input id="player-name" maxlength="60" placeholder="Digite o nome ou apelido" autocomplete="off" required></div><button type="submit" class="primary"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg>Confirmar Presença</button></div>
+      <div id="enrollment-locked-warning" class="enrollment-locked-banner" style="display:none">
+        <svg class="icon" aria-hidden="true"><use href="#icon-lock"/></svg>
+        <span id="enrollment-locked-msg">Inscrições abrem na segunda-feira às 19:00 para o jogo de quinta-feira.</span>
+      </div>
+      <div class="inline-form"><div class="field"><label for="player-name">Nome do jogador</label><input id="player-name" maxlength="60" placeholder="Digite o nome ou apelido" autocomplete="off" required></div><button type="submit" class="primary" id="btn-submit-player"><svg class="icon" aria-hidden="true"><use href="#icon-plus"/></svg>Confirmar Presença</button></div>
       <p class="form-foot">Os primeiros 15 garantem a vaga. A partir do 16º, o nome entra automaticamente na lista de espera.</p>
     </form>
 
@@ -2911,8 +3103,244 @@ function changeRoster(data,change) {
   if (changed) data.teams = [];
   return changed;
 }
+
+// =========================================================================
+// REGRA OFICIAL DE CONVOCAÇÃO: Segunda-feira às 19:00 de cada semana
+// =========================================================================
+const ENROLLMENT_RULE_DAY = 1; // 1 = Segunda-feira (Calendar / JS getDay())
+const ENROLLMENT_RULE_HOUR = 19; // 19:00 (7 da noite)
+const ENROLLMENT_RULE_MINUTE = 0;
+const OVERRIDE_STORAGE_KEY = "sideral-enrollment-override:v1";
+
+let adminEnrollmentOverride = false;
+try {
+  adminEnrollmentOverride = localStorage.getItem(OVERRIDE_STORAGE_KEY) === "true";
+} catch (e) {}
+
+/**
+ * Retorna se as inscrições estão abertas ou fechadas nesta semana.
+ * A janela abre na segunda-feira às 19:00 e fica aberta até a rodada de quinta-feira às 23:59.
+ */
+function getEnrollmentWindowStatus(now = new Date()) {
+  if (adminEnrollmentOverride) {
+    return {
+      isOpen: true,
+      isOverride: true,
+      reason: "Inscrições liberadas manualmente para teste/administração.",
+      nextOpenDate: null
+    };
+  }
+
+  const day = now.getDay(); // 0 = Domingo, 1 = Segunda, 2 = Terça, 3 = Quarta, 4 = Quinta, 5 = Sexta, 6 = Sábado
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+
+  let isOpen = false;
+
+  // Segunda-feira a partir das 19:00:
+  if (day === 1) {
+    if (hour > ENROLLMENT_RULE_HOUR || (hour === ENROLLMENT_RULE_HOUR && minute >= ENROLLMENT_RULE_MINUTE)) {
+      isOpen = true;
+    }
+  } else if (day >= 2 && day <= 4) {
+    // Terça, Quarta e Quinta (dia do jogo): ABERTO para confirmações e lista de espera
+    isOpen = true;
+  } else {
+    // Sexta, Sábado, Domingo ou Segunda antes das 19:00: FECHADO
+    isOpen = false;
+  }
+
+  // Calcula a próxima data/hora de abertura (Segunda-feira 19:00)
+  const nextOpen = new Date(now.getTime());
+  let daysUntilMonday = (1 - day + 7) % 7;
+  if (daysUntilMonday === 0) {
+    // É segunda-feira: se já passou das 19:00, próxima abertura é na próxima segunda
+    if (hour > ENROLLMENT_RULE_HOUR || (hour === ENROLLMENT_RULE_HOUR && minute >= ENROLLMENT_RULE_MINUTE)) {
+      daysUntilMonday = 7;
+    }
+  }
+  nextOpen.setDate(now.getDate() + daysUntilMonday);
+  nextOpen.setHours(ENROLLMENT_RULE_HOUR, ENROLLMENT_RULE_MINUTE, 0, 0);
+
+  return {
+    isOpen,
+    isOverride: false,
+    reason: isOpen ?
+      "Convocação aberta para a rodada de quinta-feira!" :
+      "Inscrições bloqueadas. A convocação oficial para o jogo de quinta-feira inicia toda segunda-feira às 19:00.",
+    nextOpenDate: nextOpen
+  };
+}
+
+function updateEnrollmentUI() {
+  const status = getEnrollmentWindowStatus();
+  const card = $("enrollment-schedule-card");
+  const badge = $("enrollment-status-badge");
+  const badgeText = $("enrollment-status-text");
+  const countdownLabel = $("enrollment-countdown-label");
+  const countdownValue = $("enrollment-countdown-value");
+  const warningBanner = $("enrollment-locked-warning");
+  const warningMsg = $("enrollment-locked-msg");
+  const submitBtn = $("btn-submit-player");
+  const nameInput = $("player-name");
+  const overrideBtnLabel = $("enrollment-override-label");
+
+  if (overrideBtnLabel) {
+    overrideBtnLabel.textContent = adminEnrollmentOverride ?
+      "Reativar Regra de Horário" :
+      "Liberar Inscrição Agora (Teste)";
+  }
+
+  if (status.isOpen) {
+    if (card) {
+      card.className = "enrollment-schedule-card " + (status.isOverride ? "status-override" : "status-open");
+    }
+    if (badge) {
+      badge.className = "enrollment-badge " + (status.isOverride ? "override" : "open");
+    }
+    if (badgeText) {
+      badgeText.textContent = status.isOverride ? "Convocação Liberada (Teste)" : "Convocação Oficial Aberta";
+    }
+    if (countdownLabel) countdownLabel.textContent = "Status:";
+    if (countdownValue) countdownValue.textContent = status.isOverride ? "Livre para envio" : "Inscrições ativas para quinta";
+    if (warningBanner) warningBanner.style.display = "none";
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = "1";
+    }
+    if (nameInput) {
+      nameInput.placeholder = "Digite o nome ou apelido";
+    }
+  } else {
+    if (card) {
+      card.className = "enrollment-schedule-card status-closed";
+    }
+    if (badge) {
+      badge.className = "enrollment-badge closed";
+    }
+    if (badgeText) {
+      badgeText.textContent = "Convocação Fechada";
+    }
+    if (warningBanner) {
+      warningBanner.style.display = "flex";
+    }
+    if (warningMsg && status.nextOpenDate) {
+      const now = new Date();
+      const diffMs = status.nextOpenDate.getTime() - now.getTime();
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+      const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+      const tempoFalta = (diffHours > 0) ? (diffHours + "h " + diffMins + "m") : (diffMins + "m");
+      warningMsg.textContent = "A convocação abre toda segunda-feira às 19:00 para o jogo de quinta. Falta: " + tempoFalta + ".";
+    }
+    if (countdownLabel) countdownLabel.textContent = "Abre em:";
+    if (countdownValue && status.nextOpenDate) {
+      const now = new Date();
+      const diffMs = status.nextOpenDate.getTime() - now.getTime();
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+      const diffMins = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
+      countdownValue.textContent = (diffHours > 0) ? (diffHours + "h " + diffMins + "m") : (diffMins + "m");
+    }
+    if (submitBtn) {
+      submitBtn.disabled = false; // mantemos clicável para exibir o aviso explicativo se o usuário tentar
+    }
+    if (nameInput) {
+      nameInput.placeholder = "Inscrições abrem na segunda às 19:00";
+    }
+  }
+}
+
+// Dispara notificação oficial de pré-convocação
+function triggerPreConvocacaoNotification(testMode = false) {
+  const title = "Sideral F.C. • Convocação da Rodada";
+  const message = "Logo mais daremos início à convocação oficial para o Jogo de quinta-feira! Fique atento às 19:00 para confirmar seu nome.";
+
+  let dispatched = false;
+
+  // 1. AndroidBridge nativo
+  if (window.AndroidBridge && typeof window.AndroidBridge.triggerConvocacaoNotification === "function") {
+    try {
+      window.AndroidBridge.triggerConvocacaoNotification(title, message);
+      dispatched = true;
+    } catch (err) {
+      console.warn("Falha no AndroidBridge.triggerConvocacaoNotification:", err);
+    }
+  } else if (window.AndroidBridge && typeof window.AndroidBridge.triggerTestNotification === "function") {
+    try {
+      window.AndroidBridge.triggerTestNotification(title, message);
+      dispatched = true;
+    } catch (err) {}
+  }
+
+  // 2. Web Notification API
+  if ("Notification" in window) {
+    if (Notification.permission === "granted") {
+      try {
+        new Notification(title, {
+          body: message,
+          icon: "sideral_logo.svg",
+          badge: "sideral_logo.svg"
+        });
+        dispatched = true;
+      } catch (e) {}
+    } else if (Notification.permission !== "denied") {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          new Notification(title, {
+            body: message,
+            icon: "sideral_logo.svg",
+            badge: "sideral_logo.svg"
+          });
+        }
+      });
+      dispatched = true;
+    }
+  }
+
+  notify(testMode ?
+    "Notificação disparada: Logo mais daremos início à convocação para o jogo de quinta-feira!" :
+    "Aviso de convocação enviado para todos os membros!"
+  );
+}
+
+// Agenda notificação automática toda segunda-feira às 18:00 (1 hora antes da convocação às 19:00)
+function scheduleWeeklyPreConvocacaoReminder() {
+  const title = "Sideral F.C. • Atenção Galera!";
+  const message = "Logo mais daremos início à convocação para o Jogo de quinta-feira! As confirmações abrem às 19:00.";
+  
+  if (window.AndroidBridge && typeof window.AndroidBridge.scheduleCustomReminder === "function") {
+    try {
+      // 2002 = ID exclusivo do alarme de pré-convocação de segunda-feira
+      // 2 = Calendar.MONDAY (no Java Calendar, Sunday=1, Monday=2)
+      window.AndroidBridge.scheduleCustomReminder(
+        2002,
+        true,
+        2, // Calendar.MONDAY
+        18, // 18:00 (1 hora antes das 19:00)
+        0,
+        title,
+        message
+      );
+    } catch (e) {
+      console.warn("Erro ao agendar pré-convocação:", e);
+    }
+  }
+}
+
 $("player-form").addEventListener("submit",event => {
   event.preventDefault();
+
+  // Validação da Janela de Convocação: Segunda-feira às 19:00
+  const windowStatus = getEnrollmentWindowStatus();
+  if (!windowStatus.isOpen) {
+    notify("⚠️ As confirmações só abrem na segunda-feira às 19:00 para o jogo de quinta-feira!");
+    updateEnrollmentUI();
+    const lockedMsg = $("enrollment-locked-warning");
+    if (lockedMsg) {
+      lockedMsg.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    return;
+  }
+
   const input = $("player-name"), name = cleanName(input.value);
   if (!name || name.length > 60) { notify("Informe um nome com até 60 caracteres."); input.focus(); return; }
   if (state.players.some(p => nameKey(p.name) === nameKey(name))) {
@@ -3296,6 +3724,26 @@ $("reminder-active")?.addEventListener("change", event => {
 $("btn-test-notification")?.addEventListener("click", () => {
   triggerTestNotification();
 });
+
+// Event Listeners das Ferramentas de Convocação
+$("btn-test-convocacao-notif")?.addEventListener("click", () => {
+  triggerPreConvocacaoNotification(true);
+});
+
+$("btn-toggle-enrollment-override")?.addEventListener("click", () => {
+  adminEnrollmentOverride = !adminEnrollmentOverride;
+  try {
+    localStorage.setItem(OVERRIDE_STORAGE_KEY, String(adminEnrollmentOverride));
+  } catch (e) {}
+  updateEnrollmentUI();
+  notify(adminEnrollmentOverride ?
+    "Inscrições liberadas imediatamente para testes do administrador!" :
+    "Regra estrita reativada: inscrições somente na segunda-feira às 19:00."
+  );
+});
+
+// Intervalo de atualização do contador e status da convocação a cada minuto
+setInterval(updateEnrollmentUI, 30000);
 
 // ==========================================
 // MÓDULO DO PLACAR & CRONÔMETRO PERSONALIZADO
@@ -3995,6 +4443,8 @@ render();
 syncReminderUI();
 syncScoreboardUI();
 scheduleSystemReminder(false);
+scheduleWeeklyPreConvocacaoReminder();
+updateEnrollmentUI();
 showPage();
 if (recoveryNotice) notify(recoveryNotice);
 
